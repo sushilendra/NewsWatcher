@@ -1,0 +1,5 @@
+# Local data: your topics, articles and logs (data/newswatcher.db, data/update.log)
+data/
+node_modules/
+# Local editor / Claude settings
+.claude/

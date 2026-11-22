@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NewsWatcher</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#/" class="brand">📰 NewsWatcher</a>
+    <div class="status" id="status"></div>
+  </header>
+
+  <main id="view"></main>
+
+  <dialog id="addDialog">
+    <form method="dialog" id="addForm">
+      <h2 id="topicDialogTitle">Watch a new topic</h2>
+      <label>Name <input name="name" required maxlength="80" placeholder="e.g. Electric Vehicles"></label>
+      <label>News search query <small>(optional — defaults to the name; supports OR, quotes, -exclude)</small>
+        <input name="query" maxlength="200" placeholder='e.g. "electric vehicle" OR Tesla OR Rivian'></label>
+      <label>GitHub repo <small>(optional — tracks releases, merged PRs, new issues, commits)</small>
+        <input name="githubRepo" maxlength="200" placeholder="owner/name or https://github.com/owner/name"></label>
+      <p id="topicDialogError" class="error"></p>
+      <div class="actions">
+        <button type="button" class="btn ghost" onclick="this.closest('dialog').close()">Cancel</button>
+        <button value="ok" class="btn" id="topicDialogSubmit">Add</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="confirmDialog">
+    <form method="dialog">
+      <h2>Stop watching?</h2>
+      <p id="confirmText"></p>
+      <div class="actions">
+        <button value="cancel" class="btn ghost">Cancel</button>
+        <button value="ok" class="btn danger">Remove</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>
